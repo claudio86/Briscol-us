@@ -1,3 +1,4 @@
+
 var card_list = { 
 	//denari
 	d1 : ["Asso di denari", 11],
