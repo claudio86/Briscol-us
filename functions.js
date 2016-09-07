@@ -10,12 +10,12 @@ function creaGicoatori () {
 */
 //PESCA
 function pesca(min, list) {
-  seme =  Math.floor(Math.random() * (Object.keys(list).length - min + 1) + min);
+  return Math.floor(Math.random() * (Object.keys(list).length - min + 1) + min);
 }
 
 ///DAI CARTA
 function daiCarta (id_pl) {
-	if (_.size(gameCards) != 0){
+	if (Object.keys(gameCards).length != 0){
 		mischia(gameCards);
 	}
 	else {
@@ -30,28 +30,31 @@ function playerOrder (player_list) {
 
 ///SELEZIONA SEME
 function selSeme () {
-	return pesca(0,card_list); 
+	var carta = pesca(0,card_list); 
+	if ( carta <= 9) { seme = 0;}
+	if ( carta >= 10 && carta <= 19) { seme = 1;}
+	if ( carta >= 20 && carta <= 29) { seme = 2;}
+	if ( carta >= 30) { seme = 3;}
+	//return carta;
 }
 
 //NUOVO GIOCO
 function nuovoGioco (){
-	if (player_list.length == 3) {
-		gameCards = card_list;
-		trePlayers();console.log('3player');
-	}
-	else {
-		gameCards = card_list;console.log(gameCards);
-	}
+	gameCards = card_list;
+	trePlayers ();
 	selSeme ();
 	playerOrder (player_list);
 }
 
 ///ELIMINA CARTA SE 3 GIOCATORI
 function trePlayers () {
-	var listaDue = ['d2','c2','b2','s2'];
-	var carta = [Math.floor(Math.random() * 4) + 1];
-	carta_rimossa = gameCards[listaDue[carta-1]];
-	delete gameCards[listaDue[carta-1]];
+	if (player_list.length == 3) {	
+		console.log('3player');
+		var listaDue = ['1','11','21','31'];
+		var carta = [Math.floor(Math.random() * 4) + 1];
+		carta_rimossa = gameCards[listaDue[carta-1]];
+		delete gameCards[listaDue[carta-1]];
+	}
 }
 
 //LISTA CARTE IN MANO 
