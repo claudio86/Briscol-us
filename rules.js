@@ -3,7 +3,7 @@ var card_list = {
 	//denari id 0
 	0 : ["Asso di denari", 11, 0],
 	1 : ["Due di denari", 0, 0],
-	2 : ["Tre di denari", 10, 0],
+	2 : ["Tre di denari", 10, 0]
 
 };
 

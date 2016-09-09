@@ -19,14 +19,15 @@ function pesca(min, list) {
 function daiCarta () {
 	if (Object.keys(gameCards).length != 0){
 		for (i=0;i<player_list.length;i++) {
-			//console.log(player_list[i]);
-			var player = player_list[i];
+
 			carte_in_mano_player[i] = []
-			for (n=0;n<player_list.length;n++) {
-				console.log(i);
-				carte_in_mano_player[i][n] = pesca (0,card_list);
-			}
-			console.log('carte in mano');
+			//console.log('carte in mano sss');
+			//console.log(carte_in_mano_player);
+	
+				console.log('carte in mano');
+				carte_in_mano_player[i].push ( pesca (0,gameCards));
+			
+			
 			console.log(carte_in_mano_player);
 		}
 	}
@@ -57,10 +58,11 @@ function selSeme () {
 //PARTITA ! MAIN ! ! !
 function partita () {
 	var c = 0;
-	while (c <= 3) {
+/*	while (c <= 3) {
 		daiCarta();
 		c++;
 	}
+*/
 }
 
 
