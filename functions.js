@@ -8,25 +8,26 @@ function creaGicoatori () {
 	}
 }
 */
-//PESCA
+///PESCA
 function pesca(min, list) {
 	var carta_pescata = Math.floor(Math.random() * (Object.keys(list).length - min + 1) + min);
-	//console.log(card_list[carta_pescata]);
-	delete card_list[carta_pescata];
-	//console.log(gameCards);
+	delete gameCards[carta_pescata];
 	return carta_pescata;
 }
 
-///DAI CARTA ADESSO AGGIUNGE LE CARTE IN MANO AI PLAYER MA LA SECONDA CARTA SOSTITUISCE LA PRIMA
+///DAI CARTA ADESSO FUNZIONA MA BISOGNA IMPOSTARE FINE CARTE
 function daiCarta () {
 	if (Object.keys(gameCards).length != 0){
 		for (i=0;i<player_list.length;i++) {
 			//console.log(player_list[i]);
 			var player = player_list[i];
-			carte_in_mano_player[player] = {};
-			carte_in_mano_player[player][i] += pesca (0,card_list);
+			carte_in_mano_player[i] = []
+			for (n=0;n<player_list.length;n++) {
+				console.log(i);
+				carte_in_mano_player[i][n] = pesca (0,card_list);
+			}
 			console.log('carte in mano');
-			console.log( carte_in_mano_player);
+			console.log(carte_in_mano_player);
 		}
 	}
 	else {
@@ -36,7 +37,11 @@ function daiCarta () {
 
 ///ASSEGNA ORDINE GIOCATORI
 function playerOrder (player_list) {
-	return mischia(player_list);
+
+	//carte_in_mano_player.push(i);
+
+	mischia(player_list);
+
 }
 
 ///SELEZIONA SEME

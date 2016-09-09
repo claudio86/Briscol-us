@@ -4,6 +4,17 @@ var card_list = {
 	0 : ["Asso di denari", 11, 0],
 	1 : ["Due di denari", 0, 0],
 	2 : ["Tre di denari", 10, 0],
+
+};
+
+var cards_per_player = 3;
+
+
+var card_listzz= { 
+	//denari id 0
+	0 : ["Asso di denari", 11, 0],
+	1 : ["Due di denari", 0, 0],
+	2 : ["Tre di denari", 10, 0],
 	3 : ["Quattro di denari", 0, 0],
 	4 : ["Cinque di denari", 0, 0],
 	5 : ["Sei di denari", 0, 0],
@@ -45,7 +56,3 @@ var card_list = {
 	38 : ["Cavallo di spade", 3, 3],
 	39	: ["Re di spade", 4, 3]
 };
-
-var cards_per_player = 3;
-
-
