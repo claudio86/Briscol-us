@@ -1,7 +1,8 @@
 ///LISTA GIOCATORI
 function creaGiocatori () {
 	for (i=0;i<player_list.length;i++) {
-		carte_in_mano_player[i] = []
+		carte_in_mano_player[i] = [];
+		carte_vinte_giocatore[i] = [];
 	}
 	if (!turno) {
 		turno = player_list.indexOf(player_list[0]);
@@ -12,8 +13,18 @@ function creaGiocatori () {
 
 //TURNO GIOCATORE //DA MIGLIORARE TOGLIERE GLI IF
 function giocaPlayer() {
+	for (i=0;i<carte_in_mano_player.length;i++){
+		if (carte_in_mano_player[i]==0) {return haVinto(player_list[i]);}
+	}
+	if (turno == player_list.length){
+		prendiPunti();
+	}
+	/*console.log('carte1');
+	console.log(gameCards);
 	console.log('state');
-	console.log(state);
+	console.log('carteinmano');
+	console.log(carte_in_mano_player);
+	console.log(state);*/
 		console.log('turno');
 		console.log(turno);
 	if (turno >= player_list.length){
@@ -24,26 +35,26 @@ function giocaPlayer() {
 	for (i=0;i<carte_in_mano_player.length;i++){
 		scegli_carta[i] = document.getElementById('cards-'+i);
 	}
-	if (scegli_carta[0] != 0) {
+	if (scegli_carta[0] != null) {
 			scegli_carta[0].onclick = function() {
 			giocaCarta(carte_in_mano_player[turno][0]);
-			console.log(0);	turno += 1;
+			turno += 1;
 			aggCarte ();
 			giocaPlayer();
 		}
 	}
-	if (scegli_carta[1] != 0) {
+	if (scegli_carta[1] != null) {
 			scegli_carta[1].onclick = function() {
 			giocaCarta(carte_in_mano_player[turno][1]);
-			console.log(1);	turno += 1;
+			turno += 1;
 			aggCarte ();
 			giocaPlayer();
 		}	
 	}
-	if (scegli_carta[2] != 0) {
+	if (scegli_carta[2] != null) {
 			scegli_carta[2].onclick = function() {
 			giocaCarta(carte_in_mano_player[turno][2]);
-			console.log(2);	turno += 1;
+			turno += 1;
 			aggCarte ();
 			giocaPlayer();
 		}
@@ -51,7 +62,7 @@ function giocaPlayer() {
 
 }
 
-//GIOCA CARTA
+///GIOCA CARTA
 function giocaCarta (carta){
 	carte_tavola.push (carta);
 	console.log(carte_tavola);
@@ -60,13 +71,28 @@ function giocaCarta (carta){
 	giocaCarte();
 }
 
-//AGGIORNA CARTE IN MANO
-function aggCarte () {
-		document.getElementById('n').innerHTML = "";
+//PRENDI PUNTI / MANCA ASSOCIARE CARTE TAVOLA AD ARRAY CARTE GENERALE PER PRENDERE 
+function prendiPunti () {
+	for (i=0;i<carte_tavola.length;i++) {
+		x = carte_tavola [i];
+		carte_da_prendere.push (card_list[x][1]);
+	}
+	carta_che_prende = Math.max (...carte_da_prendere);
+	console.log(carte_da_prendere);
+	index = carte_da_prendere.indexOf(carta_che_prende);
+	carte_vinte_giocatore[index].push (carte_tavola);
+	carte_tavola = [];
+	console.log('puntiAAA');
+	//console.log(carta_che_prende);
 
 }
 
-//STATO 1
+///AGGIORNA CARTE IN MANO
+function aggCarte () {
+	document.getElementById('n').innerHTML = "";
+}
+
+///STATO CAMBIA
 function stato (stato){
 	state = stato;
 }
@@ -89,9 +115,6 @@ function daiCarta () {
 			}
 			daiCarta();
 		}
-	}
-	else {
-		return haVinto();
 	}
 }
 
@@ -148,12 +171,10 @@ function mischia(array) {
   return array;
 }
 
-
 //FINE PARTITA
-function haVinto (){
-	console.log('ha vinto');
+function haVinto (player){
+	console.log('ha vinto'+player);
 }
-
 
 //CONTEGGIO PUNTI PARTITE PRECEDENTI
 

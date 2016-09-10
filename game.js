@@ -18,7 +18,6 @@ console.log(state);
 		if (state == 1){
 			giocaPlayer();
 			stato (2);			
-			console.log('ssss');
 		}
 		if (state == 3){
 			daiCarta();
