@@ -7,12 +7,14 @@ function creaGiocatori () {
 	if (!turno) {
 		turno = player_list.indexOf(player_list[0]);
 		//console.log(turno);
-		console.log(carte_in_mano_player);
+ 		console.log(carte_in_mano_player);
 	}
 }
 
 //TURNO GIOCATORE //DA MIGLIORARE TOGLIERE GLI IF
 function giocaPlayer() {
+							mostraCarte();
+
 	for (i=0;i<carte_in_mano_player.length;i++){
 		if (carte_in_mano_player[i]==0) {return haVinto(player_list[i]);}
 	}

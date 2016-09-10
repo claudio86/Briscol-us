@@ -8,11 +8,70 @@
 <script src="functions.js"></script>  
 <script src="game.js"></script>  
 <script src="view.js"></script>  
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/custom.css" rel="stylesheet">
 </head>
 
 <body>
-<div id="n"></div>
-<div id="a"></div>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Briscol-us</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input placeholder="Email" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+              <input placeholder="Password" class="form-control" type="password">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+
+
+    <div class="container" style="margin-top:80px;">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-8">
+			<h2 id="carte_giocatore"></h2>
+			<div id="n"></div>
+			<div id="a"></div>
+			
+        </div>
+       <div class="col-md-4">
+	   		<h2>Briscola</h2>
+			<div id="seme"></div>		
+        </div>		
+      </div>  
+	  <div class="row">
+		<h2>Heading</h2>
+	  </div>
+      <hr>
+
+      <footer>
+        <p>© 2016 Company, Inc.</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+
+
+
 <script>
 
 for(var index in card_list) { 
@@ -24,6 +83,8 @@ gioco ();
 
  
 </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

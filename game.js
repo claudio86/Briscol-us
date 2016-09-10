@@ -12,6 +12,7 @@ console.log(state);
 			playerOrder ();
 			daiCarta();
 			stato (1);
+			mostraSeme();
 			gioco();
 		}
 		//TURNO GIOCATORI
