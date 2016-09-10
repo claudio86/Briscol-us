@@ -1,5 +1,5 @@
 var cards_per_player = 3;
-
+ 
 
 var card_list = { 
 	//denari id 0

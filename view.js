@@ -1,9 +1,7 @@
 //GIOCA CARTE
 function giocaCarte(){
-	for (i=0;i<carte_in_mano_player.length;i++) {
-		console.log(carte_in_mano_player[turno])
-		var scegli_carte = "<div class='cards'>"+ carte_in_mano_player[turno][i] +"</div>";
-		document.getElementById('n').innerHTML = scegli_carte;
-	}
-	
+	var scegli_carte = document.getElementById('n');
+	for (i=0;i<carte_in_mano_player[turno].length;i++) {
+		scegli_carte.innerHTML += "<div id='cards-"+i+"'>"+ carte_in_mano_player[turno][i] +"</div>";
+	}	
 }

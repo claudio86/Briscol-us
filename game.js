@@ -3,7 +3,7 @@ console.log(state);
 
 //GIOCO 
 
-	function nuovoGioco (){
+	function gioco (){
 		//INIZIO PARTITA
 		if (state == 0){
 			creaMazzo();
@@ -11,19 +11,20 @@ console.log(state);
 			selSeme ();
 			playerOrder ();
 			daiCarta();
-			stato1 ();
-			nuovoGioco();
+			stato (1);
+			gioco();
 		}
 		//TURNO GIOCATORI
 		if (state == 1){
-			console.log(player_list);
-			console.log(state);
+			giocaPlayer();
+			stato (2);			
+		}
+		if (state == 3){
+			daiCarta();
+			stato (1);
+			turno = 0;
 			giocaPlayer();
 		}
 	}									
 
 	
-
-
-
-//console.log(player_list);
