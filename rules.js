@@ -10,7 +10,7 @@ var card_list = {
 var cards_per_player = 3;
 
 
-var card_listzz= { 
+var card_lists= { 
 	//denari id 0
 	0 : ["Asso di denari", 11, 0],
 	1 : ["Due di denari", 0, 0],
