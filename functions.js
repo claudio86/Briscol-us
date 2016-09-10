@@ -76,17 +76,42 @@ function prendiPunti () {
 	for (i=0;i<carte_tavola.length;i++) {
 		x = carte_tavola [i];
 		carte_da_prendere.push (card_list[x][1]);
+		
+		if (card_list[carte_tavola[i]][3] == seme ){
+			briscole.push (carte_tavola[i]) ;
+			console.log ('seme '+ seme);
+			console.log (carte_tavola[i]);
+			console.log ('e- briscola');
+			briscola = 1;
+		}
 	}
-	punti_carta_che_prende = Math.max (...carte_da_prendere);
-	console.log(carte_da_prendere);
-	index = carte_da_prendere.indexOf(punti_carta_che_prende);
-	carte_vinte_giocatore[index].push (carte_tavola);
-	console.log('punti_carta_che_prende');
-	console.log(punti_carta_che_prende);
-	carte_tavola = [];
-	punti_carta_che_prende = [];
-	carte_da_prendere = [];
-	console.log('puntiAAA');
+	if (briscola != 1 ){
+		punti_carta_che_prende = Math.max (...carte_da_prendere);
+		index = carte_da_prendere.indexOf(punti_carta_che_prende);
+		carte_vinte_giocatore[index].push (carte_tavola);
+		///console.log('carta_d_prendere');
+		///console.log(carte_da_prendere);
+		///console.log(punti_carta_che_prende);
+		carte_tavola = [];
+		punti_carta_che_prende = [];
+		carte_da_prendere = [];
+		console.log('puntiAAA');
+	}
+	else {
+		console.log('briscole');
+		console.log(briscole);
+		punti_carta_che_prende = Math.max (...briscole);
+		index = briscole.indexOf(punti_carta_che_prende);
+		carte_vinte_giocatore[index].push (carte_tavola);
+		console.log('ha vinto giocatore ' + index  );
+		///console.log(punti_carta_che_prende);
+		carte_tavola = [];
+		punti_carta_che_prende = [];
+		briscole = [];
+		carte_da_prendere = [];
+		briscola = 0;
+		console.log('puntiAAA');
+	}
 	
 }
 

@@ -8,6 +8,8 @@ var gameCards = card_list;
 var num_card = card_list.length;
 var carta_rimossa;
 var seme;
+var briscole = [];
+var briscola;
 
 //GIOCATORI
 var player_list = ["Pippo","Pluto","Paperino"];
