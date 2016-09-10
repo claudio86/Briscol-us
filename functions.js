@@ -12,28 +12,20 @@ function pesca(min, list) {
 	index = gameCards.indexOf(carta_pescata);
 	console.log('carta_pescata');
 	console.log(carta_pescata);
-	//console.log('index');
-	//console.log(index);
 	gameCards.splice(index, 1);
-	//console.log('gameCards');
-	//console.log(gameCards);
-	//delete gameCards[carta_pescata];
 	return carta_pescata;
 }
 
 ///DAI CARTA ADESSO FUNZIONA MA BISOGNA IMPOSTARE FINE CARTE
 function daiCarta () {
 	if (gameCards.length != 0){
-		for (i=0;i<player_list.length;i++) {
-
-			//console.log('carte in mano sss');
-			//console.log(carte_in_mano_player);
-	
-			console.log('carte in mano');
-			carte_in_mano_player[i].push ( pesca (0,gameCards) );
-			
-			
-			console.log(carte_in_mano_player);
+		if(carte_in_mano_player[carte_in_mano_player.length-1].length < cards_per_player){
+			for (i=0;i<player_list.length;i++) {
+				console.log('carte in mano');
+				carte_in_mano_player[i].push ( pesca (0,gameCards) );	
+				console.log(carte_in_mano_player);	
+			}
+			daiCarta();
 		}
 	}
 	else {
@@ -43,10 +35,8 @@ function daiCarta () {
 
 ///ASSEGNA ORDINE GIOCATORI
 function playerOrder (player_list) {
-
 	mischia(player_list);
 	creaGicoatori ();
-
 }
 
 ///SELEZIONA SEME
@@ -59,21 +49,11 @@ function selSeme () {
 	index = gameCards.indexOf(carta);
 	gameCards.splice(index,1);
 	gameCards.push(carta);
-	//return carta;
+	return carta;
 }
 
-//PARTITA ! MAIN ! ! !
-function partita () {
-/*	var c = 0;
-	while (c <= 3) {
-		daiCarta();
-		c++;
-	}
-*/
-}
 
 //CREA MAZZO
-
 function creaMazzo () {
 	gameCards = [];
 	for (i=0; i < Object.keys(card_list).length; i++) {
@@ -81,19 +61,6 @@ function creaMazzo () {
 	}
 }
 
-//NUOVO GIOCO
-function nuovoGioco (){
-	creaMazzo();
-	trePlayers ();
-	selSeme ();
-	playerOrder (player_list);
-	partita();
-}
-
-//FINE PARTITA
-function haVinto (){
-	console.log('ha vinto');
-}
 
 ///ELIMINA CARTA SE 3 GIOCATORI
 function trePlayers () {
@@ -101,18 +68,13 @@ function trePlayers () {
 		console.log('3 GIOCATORI');
 		var listaDue = ['1','11','21','31'];
 		var random = Math.floor(Math.random() * (Object.keys(listaDue).length));
-
 //		var carta = [Math.floor(Math.random() * 4)];
 		carta_rimossa = gameCards[listaDue[random]];
-		console.log(carta_rimossa);
+//		console.log(carta_rimossa);
 			gameCards.splice(random,1);
 	}
 }
 
-//LISTA CARTE IN MANO 
-function carteMano (id_pl) {
-	
-}
 
 ///ALGORITMO RANDOM
 function mischia(array) {
@@ -125,6 +87,12 @@ function mischia(array) {
     array[randomIndex] = temporaryValue;
   }
   return array;
+}
+
+
+//FINE PARTITA
+function haVinto (){
+	console.log('ha vinto');
 }
 
 
