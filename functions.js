@@ -1,8 +1,23 @@
-//LISTA GIOCATORI
-function creaGicoatori () {
+///LISTA GIOCATORI
+function creaGiocatori () {
 	for (i=0;i<player_list.length;i++) {
 		carte_in_mano_player[i] = []
 	}
+}
+
+//TURNO GIOCATORE
+function giocaPlayer() {
+	if (!turno) {
+		turno = player_list.indexOf(player_list[0]);
+		console.log(turno);
+		console.log(player_list[0]);
+		giocaCarte();
+	}
+}
+
+//STATO 1
+function stato1 (){
+	state = 1;
 }
 
 ///PESCA
@@ -10,8 +25,6 @@ function pesca(min, list) {
 	var random = Math.floor(Math.random() * (Object.keys(list).length));
 	var carta_pescata = gameCards[random];
 	index = gameCards.indexOf(carta_pescata);
-	console.log('carta_pescata');
-	console.log(carta_pescata);
 	gameCards.splice(index, 1);
 	return carta_pescata;
 }
@@ -21,9 +34,7 @@ function daiCarta () {
 	if (gameCards.length != 0){
 		if(carte_in_mano_player[carte_in_mano_player.length-1].length < cards_per_player){
 			for (i=0;i<player_list.length;i++) {
-				console.log('carte in mano');
 				carte_in_mano_player[i].push ( pesca (0,gameCards) );	
-				console.log(carte_in_mano_player);	
 			}
 			daiCarta();
 		}
@@ -34,9 +45,11 @@ function daiCarta () {
 }
 
 ///ASSEGNA ORDINE GIOCATORI
-function playerOrder (player_list) {
+function playerOrder () {
 	mischia(player_list);
-	creaGicoatori ();
+	creaGiocatori ();	
+	//return player_list;
+
 }
 
 ///SELEZIONA SEME
@@ -52,8 +65,7 @@ function selSeme () {
 	return carta;
 }
 
-
-//CREA MAZZO
+///CREA MAZZO
 function creaMazzo () {
 	gameCards = [];
 	for (i=0; i < Object.keys(card_list).length; i++) {
@@ -61,20 +73,16 @@ function creaMazzo () {
 	}
 }
 
-
 ///ELIMINA CARTA SE 3 GIOCATORI
 function trePlayers () {
 	if (player_list.length == 3) {	
 		console.log('3 GIOCATORI');
 		var listaDue = ['1','11','21','31'];
 		var random = Math.floor(Math.random() * (Object.keys(listaDue).length));
-//		var carta = [Math.floor(Math.random() * 4)];
 		carta_rimossa = gameCards[listaDue[random]];
-//		console.log(carta_rimossa);
-			gameCards.splice(random,1);
+		gameCards.splice(random,1);
 	}
 }
-
 
 ///ALGORITMO RANDOM
 function mischia(array) {

@@ -1,22 +1,29 @@
 console.log(state);
 
-//PARTITA 
-function partita () {
-	creaMazzo();
-	trePlayers ();
-	selSeme ();
-	playerOrder (player_list)
-	daiCarta();
-	//giocaPlayer();
-}
 
-//STATE 0 - INIZIO PARTITA
-if (state == 0){
+//GIOCO 
+
 	function nuovoGioco (){
-		partita ();	
-	}
-}
+		//INIZIO PARTITA
+		if (state == 0){
+			creaMazzo();
+			trePlayers ();
+			selSeme ();
+			playerOrder ();
+			daiCarta();
+			stato1 ();
+			nuovoGioco();
+		}
+		//TURNO GIOCATORI
+		if (state == 1){
+			console.log(player_list);
+			console.log(state);
+			giocaPlayer();
+		}
+	}									
 
-if (state == 1){
 	
-}
+
+
+
+//console.log(player_list);
