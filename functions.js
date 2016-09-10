@@ -3,21 +3,72 @@ function creaGiocatori () {
 	for (i=0;i<player_list.length;i++) {
 		carte_in_mano_player[i] = []
 	}
-}
-
-//TURNO GIOCATORE
-function giocaPlayer() {
 	if (!turno) {
 		turno = player_list.indexOf(player_list[0]);
-		console.log(turno);
-		console.log(player_list[0]);
-		giocaCarte();
+		//console.log(turno);
+		console.log(carte_in_mano_player);
 	}
 }
 
+//TURNO GIOCATORE //DA MIGLIORARE TOGLIERE GLI IF
+function giocaPlayer() {
+	console.log('state');
+	console.log(state);
+		console.log('turno');
+		console.log(turno);
+	if (turno >= player_list.length){
+		stato(3);
+		return gioco();
+	}
+	giocaCarte();
+	for (i=0;i<carte_in_mano_player.length;i++){
+		scegli_carta[i] = document.getElementById('cards-'+i);
+	}
+	if (scegli_carta[0] != 0) {
+			scegli_carta[0].onclick = function() {
+			giocaCarta(carte_in_mano_player[turno][0]);
+			console.log(0);	turno += 1;
+			aggCarte ();
+			giocaPlayer();
+		}
+	}
+	if (scegli_carta[1] != 0) {
+			scegli_carta[1].onclick = function() {
+			giocaCarta(carte_in_mano_player[turno][1]);
+			console.log(1);	turno += 1;
+			aggCarte ();
+			giocaPlayer();
+		}	
+	}
+	if (scegli_carta[2] != 0) {
+			scegli_carta[2].onclick = function() {
+			giocaCarta(carte_in_mano_player[turno][2]);
+			console.log(2);	turno += 1;
+			aggCarte ();
+			giocaPlayer();
+		}
+	}
+
+}
+
+//GIOCA CARTA
+function giocaCarta (carta){
+	carte_tavola.push (carta);
+	console.log(carte_tavola);
+	index = carte_in_mano_player[turno].indexOf(carta);
+	carte_in_mano_player[turno].splice(index,1);
+	giocaCarte();
+}
+
+//AGGIORNA CARTE IN MANO
+function aggCarte () {
+		document.getElementById('n').innerHTML = "";
+
+}
+
 //STATO 1
-function stato1 (){
-	state = 1;
+function stato (stato){
+	state = stato;
 }
 
 ///PESCA

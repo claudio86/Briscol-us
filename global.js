@@ -12,11 +12,12 @@ var seme;
 //GIOCATORI
 var player_list = ["Pippo","Pluto","Paperino"];
 var carte_in_mano_player = [];
+var scegli_carta = [];
 
 //PARTITA
 var carte_tavola = [];
 var carte_prese_da_giocatore = [];
-var turno;
+var turno = 0;
 
 
 
