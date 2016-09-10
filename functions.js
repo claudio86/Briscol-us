@@ -83,10 +83,9 @@ function prendiPunti () {
 	carte_vinte_giocatore[index].push (carte_tavola);
 	console.log('punti_carta_che_prende');
 	console.log(punti_carta_che_prende);
-	console.log(punti_carta_che_prende);
-	console.log(punti_carta_che_prende);
-carte_tavola = [];
-	punti_carta_che_prende = "";
+	carte_tavola = [];
+	punti_carta_che_prende = [];
+	carte_da_prendere = [];
 	console.log('puntiAAA');
 	
 }
