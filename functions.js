@@ -81,10 +81,14 @@ function prendiPunti () {
 	console.log(carte_da_prendere);
 	index = carte_da_prendere.indexOf(punti_carta_che_prende);
 	carte_vinte_giocatore[index].push (carte_tavola);
-	carte_tavola = [];
+	console.log('punti_carta_che_prende');
+	console.log(punti_carta_che_prende);
+	console.log(punti_carta_che_prende);
+	console.log(punti_carta_che_prende);
+carte_tavola = [];
+	punti_carta_che_prende = "";
 	console.log('puntiAAA');
-	//console.log(punti_carta_che_prende);
-
+	
 }
 
 ///AGGIORNA CARTE IN MANO
@@ -173,7 +177,7 @@ function mischia(array) {
 
 //FINE PARTITA
 function haVinto (player){
-	console.log('ha vinto'+player);
+	console.log('ha vinto '+player);
 }
 
 //CONTEGGIO PUNTI PARTITE PRECEDENTI
