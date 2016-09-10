@@ -1,13 +1,10 @@
 //LISTA GIOCATORI
-
-/*
 function creaGicoatori () {
-	var player_list = [];
-	for (i=0;object i<cards_per_player;i++){
-		player_list.push (i);
+	for (i=0;i<player_list.length;i++) {
+		carte_in_mano_player[i] = []
 	}
 }
-*/
+
 ///PESCA
 function pesca(min, list) {
 	var random = Math.floor(Math.random() * (Object.keys(list).length));
@@ -15,11 +12,11 @@ function pesca(min, list) {
 	index = gameCards.indexOf(carta_pescata);
 	console.log('carta_pescata');
 	console.log(carta_pescata);
-	console.log('index');
-	console.log(index);
+	//console.log('index');
+	//console.log(index);
 	gameCards.splice(index, 1);
-	console.log('gameCards');
-	console.log(gameCards);
+	//console.log('gameCards');
+	//console.log(gameCards);
 	//delete gameCards[carta_pescata];
 	return carta_pescata;
 }
@@ -29,7 +26,6 @@ function daiCarta () {
 	if (gameCards.length != 0){
 		for (i=0;i<player_list.length;i++) {
 
-			carte_in_mano_player[i] = []
 			//console.log('carte in mano sss');
 			//console.log(carte_in_mano_player);
 	
@@ -48,9 +44,8 @@ function daiCarta () {
 ///ASSEGNA ORDINE GIOCATORI
 function playerOrder (player_list) {
 
-	//carte_in_mano_player.push(i);
-
 	mischia(player_list);
+	creaGicoatori ();
 
 }
 
@@ -61,6 +56,9 @@ function selSeme () {
 	if ( carta >= 10 && carta <= 19) { seme = 1;}
 	if ( carta >= 20 && carta <= 29) { seme = 2;}
 	if ( carta >= 30) { seme = 3;}
+	index = gameCards.indexOf(carta);
+	gameCards.splice(index,1);
+	gameCards.push(carta);
 	//return carta;
 }
 
@@ -102,9 +100,12 @@ function trePlayers () {
 	if (player_list.length == 3) {	
 		console.log('3 GIOCATORI');
 		var listaDue = ['1','11','21','31'];
-		var carta = [Math.floor(Math.random() * 4) + 1];
-		carta_rimossa = gameCards[listaDue[carta-1]];
-		delete gameCards[listaDue[carta-1]];
+		var random = Math.floor(Math.random() * (Object.keys(listaDue).length));
+
+//		var carta = [Math.floor(Math.random() * 4)];
+		carta_rimossa = gameCards[listaDue[random]];
+		console.log(carta_rimossa);
+			gameCards.splice(random,1);
 	}
 }
 
