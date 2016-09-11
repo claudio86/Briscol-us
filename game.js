@@ -13,6 +13,7 @@ console.log(state);
 			daiCarta();
 			stato (1);
 			mostraSeme();
+			tastoTurno();
 			gioco();
 		}
 		//TURNO GIOCATORI
