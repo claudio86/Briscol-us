@@ -185,6 +185,17 @@ function mischia(array) {
   return array;
 }
 
+//CALCOLO PUNTI
+function calcoloPunti () {
+	for (i=0;i<player_list.length;i++){
+		punti_giocatore[i] = [];
+		for (n=0;n<carte_vinte_giocatore.length[i];n++){
+			punti = card_list[carte_vinte_giocatore[i][n][n]][2]; 
+			punti_giocatore[i] .push(punti);
+		}
+	}
+}
+
 //FINE PARTITA
 function haVinto (player){
 	console.log('ha vinto '+player);

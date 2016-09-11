@@ -18,6 +18,7 @@ var scegli_carta = [];
 var carte_vinte_giocatore = [];
 var carte_da_prendere = [];
 var vincitore_mano;
+var punti_giocatore = [];
 
 //PARTITA
 var carte_tavola = [];
