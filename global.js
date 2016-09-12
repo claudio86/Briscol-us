@@ -22,7 +22,7 @@ var punti_giocatore = [];
 
 //PARTITA
 var carte_tavola = [];
-var carte_prese_da_giocatore = [];
+var calcolo_punti = [];
 var turno = 0;
  
 

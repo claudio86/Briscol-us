@@ -188,17 +188,24 @@ function mischia(array) {
 //CALCOLO PUNTI
 function calcoloPunti () {
 	for (i=0;i<player_list.length;i++){
-		punti_giocatore[i] = [];
-		for (n=0;n<carte_vinte_giocatore.length[i];n++){
-			punti = card_list[carte_vinte_giocatore[i][n][n]][2]; 
-			punti_giocatore[i] .push(punti);
+		//punti_giocatore[i] = [];
+		var punti = 0;
+		for (n=0;n<carte_vinte_giocatore[i].length;n++){
+			for (x=0;x<carte_vinte_giocatore[i][n].length;x++){
+				punti += card_list[carte_vinte_giocatore[i][n][x]][2];
+			}
 		}
+		punti_giocatore .push(punti);
 	}
 }
 
 //FINE PARTITA
 function haVinto (player){
-	console.log('ha vinto '+player);
+	var punti_vincitore = Math.max(...punti_giocatore);
+	var vincitore =  player_list[punti_giocatore.indexOf(punti_vincitore)];
+		//var punteggi = Math.max(punti_giocatore);
+	console.log('ha vinto '+vincitore);
+	//console.log('ha vinto '+player);
 }
 
 //CONTEGGIO PUNTI PARTITE PRECEDENTI
